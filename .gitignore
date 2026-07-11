@@ -1,15 +1,29 @@
-# v0 sandbox internal files
-__v0_runtime_loader.js
-__v0_devtools.tsx
-__v0_jsx-dev-runtime.ts
-.snowflake/
-.v0-trash/
-.vercel/
+# --- StormRaven OS: Integrity Seal ---
+# Secrets and Keys
+*.key
+*.pem
+*.token
+config.ini
 
-# Environment variables
-.env*.local
+# Build Artifacts
+/muspellheimr/bin/
+/muspellheimr/pkg/tmp/
+/alfheimr/dist/
+/alfheimr/node_modules/
+*.exe
+*.o
+*.obj
 
-# Common ignores
-node_modules
-.next/
+# Forensic & Local Data
+/yggdrasil_vfs/
+/mnt/
 .DS_Store
+*.log
+*.sqlite
+*.db
+
+# Environment
+venv/
+.env
+__pycache__/
+*.pyc
