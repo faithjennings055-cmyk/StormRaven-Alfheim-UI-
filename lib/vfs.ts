@@ -12,33 +12,39 @@ export type VfsNode = {
   content?: string
 }
 
-const genesis = `# Ostara Genesis Blueprint
+const genesis = \`# Ostara Genesis Blueprint (Ethereal Void)
 
-The **Ostara Genesis Script** manifests the tri-layer directory structure and
-initializes the Go Hexagonal + React scaffolds.
+The **Ostara Genesis Script** manifests the **Hybrid Microkernel Matrix** and
+initializes the **Ethereal Optical Bus** communication layer.
 
-## Realms
+## The Nine Realms of the Void
 
-| Realm       | Mount        | Purpose                          |
-| ----------- | ------------ | -------------------------------- |
-| Alfheim     | \`/alfheim\`   | Ethereal edge UI (this shell)    |
-| Midgard     | \`/midgard\`   | Hexagonal Go core + adapters     |
-| Niflheim    | \`/niflheim\`  | Cold storage + forensic archive  |
-| Helheim     | \`/helheim\`   | Quarantine / isolation vault     |
+| Realm       | Mount        | Purpose                                      |
+| ----------- | ------------ | -------------------------------------------- |
+| Asgard      | \`/asgard\`     | Persona Matrix & High-Privilege Command      |
+| Vanaheim    | \`/vanaheim\`   | Real-time Telemetry & Vitality Monitor      |
+| Muspelheim  | \`/muspelheim\` | Chaos Engineering & Predefined Fault States |
+| Jotunheim   | \`/jotunheim\`  | Cold Storage & Forensic Deep-Archives       |
+| Svartalfheim| \`/svartalf\`   | Optical Bus Drivers & Microkernel Binaries  |
+| Midgard     | \`/midgard\`    | Primary Operational Layer & Core Adapters   |
+| Alfheim     | \`/alfheim\`    | Ethereal Edge UI (The Dashboard)            |
+| Niflheim    | \`/niflheim\`   | Forensic Archive & State Snapshotting      |
+| Helheim     | \`/helheim\`    | Isolation Vault & Hostile Quarantine       |
 
+> All components communicate via the **Ethereal Optical Bus**.
 > Autonomous scanners default to **disabled**. Opt in via \`config.ini\`.
-`
+\``
 
-const heimdallrDoc = `# Heimdallr Sanitization Doctrine
+const heimdallrDoc = \`# Heimdallr Sanitization Doctrine
 
 Every command crosses the Bifröst through heuristic regex analysis before it
 touches the execution layer. This defeats command injection (**CWE-77**).
 
 \`\`\`ts
 const INJECTION = [
-  /[;&|\`]|\\$\\(|\\|\\|/,        // shell chaining
-  /\\b(rm|dd|mkfs|kill)\\b/i,   // destructive binaries
-  /(\\.\\.\\/|\\/etc\\/)/,          // path traversal
+  /[;&|\\\`]|\\\\$\\(|\\\\|\\|,        // shell chaining
+  /\\\\b(rm|dd|mkfs|kill)\\\\b/i,   // destructive binaries
+  /((\\\\.\\.\\/|\\\\/etc\\\\/))/ ,          // path traversal
 ]
 
 export function inspect(input: string) {
@@ -48,9 +54,9 @@ export function inspect(input: string) {
 \`\`\`
 
 Execution is locked to the **Runic whitelist**: \`fehu\`, \`algiz\`, \`isa\`, \`raido\`.
-`
+\``
 
-const bifrostDoc = `# Bifröst Telemetry Bridge
+const bifrostDoc = \`# Bifröst Telemetry Bridge
 
 Live daemon status streams over a WebSocket bridge into the Redux Toolkit store.
 
@@ -66,9 +72,9 @@ useEffect(() => {
 
 Each of the eleven daemons publishes a heartbeat; Ginnungagap persists them to
 the forensic ledger.
-`
+\``
 
-const demogorgonDoc = `# Demogorgon — TCP Tarpit
+const demogorgonDoc = \`# Demogorgon — TCP Tarpit
 
 Multi-threaded honeypot bound to port **2222**. Holds hostile connections open
 with a slow-drip banner to waste attacker time and harvest indicators.
@@ -84,7 +90,7 @@ func tarpit(conn net.Conn) {
 \`\`\`
 
 **Status:** disabled by default (Non-Destructive Mandate).
-`
+\``
 
 export const VFS: VfsNode = {
   id: "root",
@@ -92,6 +98,102 @@ export const VFS: VfsNode = {
   path: "/",
   kind: "dir",
   children: [
+    {
+      id: "asgard",
+      name: "asgard",
+      path: "/asgard",
+      kind: "dir",
+      children: [
+        {
+          id: "persona",
+          name: "persona-matrix.md",
+          path: "/asgard/persona-matrix.md",
+          kind: "file",
+          lang: "markdown",
+          content: "# Persona Matrix\\n\\nAccess control based on mythological archetypes.",
+        },
+      ],
+    },
+    {
+      id: "vanaheim",
+      name: "vanaheim",
+      path: "/vanaheim",
+      kind: "dir",
+      children: [
+        {
+          id: "vitality",
+          name: "vitality-monitor.md",
+          path: "/vanaheim/vitality-monitor.md",
+          kind: "file",
+          lang: "markdown",
+          content: "# Vitality Monitor\\n\\nReal-time system telemetry.",
+        },
+      ],
+    },
+    {
+      id: "muspelheim",
+      name: "muspelheim",
+      path: "/muspelheim",
+      kind: "dir",
+      children: [
+        {
+          id: "chaos",
+          name: "chaos-engine.md",
+          path: "/muspelheim/chaos-engine.md",
+          kind: "file",
+          lang: "markdown",
+          content: "# Chaos Engine\\n\\nFault states and resilience testing.",
+        },
+      ],
+    },
+    {
+      id: "jotunheim",
+      name: "jotunheim",
+      path: "/jotunheim",
+      kind: "dir",
+      children: [
+        {
+          id: "deeparchive",
+          name: "deep-archive.md",
+          path: "/jotunheim/deep-archive.md",
+          kind: "file",
+          lang: "markdown",
+          content: "# Deep Archive\\n\\nCold storage for monolithic logs.",
+        },
+      ],
+    },
+    {
+      id: "svartalfheim",
+      name: "svartalf",
+      path: "/svartalf",
+      kind: "dir",
+      children: [
+        {
+          id: "opticalbus",
+          name: "optical-bus.md",
+          path: "/svartalf/optical-bus.md",
+          kind: "file",
+          lang: "markdown",
+          content: "# Ethereal Optical Bus\\n\\nZero-latency communication drivers.",
+        },
+      ],
+    },
+    {
+      id: "midgard",
+      name: "midgard",
+      path: "/midgard",
+      kind: "dir",
+      children: [
+        {
+          id: "heimdallr",
+          name: "heimdallr-doctrine.md",
+          path: "/midgard/heimdallr-doctrine.md",
+          kind: "file",
+          lang: "markdown",
+          content: heimdallrDoc,
+        },
+      ],
+    },
     {
       id: "alfheim",
       name: "alfheim",
@@ -117,18 +219,18 @@ export const VFS: VfsNode = {
       ],
     },
     {
-      id: "midgard",
-      name: "midgard",
-      path: "/midgard",
+      id: "niflheim",
+      name: "niflheim",
+      path: "/niflheim",
       kind: "dir",
       children: [
         {
-          id: "heimdallr",
-          name: "heimdallr-doctrine.md",
-          path: "/midgard/heimdallr-doctrine.md",
+          id: "snapshots",
+          name: "state-snapshots.md",
+          path: "/niflheim/state-snapshots.md",
           kind: "file",
           lang: "markdown",
-          content: heimdallrDoc,
+          content: "# State Snapshots\\n\\nForensic state recovery points.",
         },
       ],
     },
