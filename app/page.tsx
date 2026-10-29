@@ -117,8 +117,8 @@ export default function Page() {
       {/* Top Status Bar */}
       <header className="glass-strong border-b border-border px-4 py-3 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <div className="size-9 rounded-lg bg-primary/15 border border-primary/40 flex items-center justify-center text-primary font-mono font-bold">
-            ✦
+          <div className="size-9 rounded-lg bg-primary/15 border border-primary/40 flex items-center justify-center aurora-glow overflow-hidden">
+            <img src="/logo.svg" alt="StormRaven Logo" className="size-full object-cover" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -206,6 +206,15 @@ export default function Page() {
                       <div className="flex items-start justify-between gap-2">
                         <div>
                           <div className="flex items-center gap-2">
+                          <div className="size-4 text-primary">
+                            {d.id === 'odin' && <Shield className="size-4" />}
+                            {d.id === 'thor' && <Zap className="size-4" />}
+                            {d.id === 'freya' && <Sparkles className="size-4" />}
+                            {d.id === 'heimdall' && <Lock className="size-4" />}
+                            {d.id === 'bifrost' && <Wifi className="size-4" />}
+                            {d.id === 'ragnarok' && <Flame className="size-4" />}
+                            {d.id !== 'odin' && d.id !== 'thor' && d.id !== 'freya' && d.id !== 'heimdall' && d.id !== 'bifrost' && d.id !== 'ragnarok' && <Cpu className="size-4" />}
+                          </div>
                             <h3 className="font-mono font-bold text-sm text-foreground">{d.name}</h3>
                             <span className="text-[11px] font-mono text-muted-foreground">· {d.role}</span>
                           </div>
