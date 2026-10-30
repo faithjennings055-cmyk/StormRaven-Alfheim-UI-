@@ -14,6 +14,7 @@ import {
   Terminal,
   Wifi,
 } from "lucide-react"
+import RealmsView from "@/components/realms/RealmsView"
 import { PANTHEON, STATUS_META, type DaemonStatus } from "@/lib/pantheon"
 import { RUNIC_WHITELIST, heimdallrInspect, type RunicCommand } from "@/lib/heimdallr"
 import { VFS, flattenFiles, type VfsNode } from "@/lib/vfs"
@@ -30,7 +31,7 @@ const DEFAULT_GATEWAY = "https://01a11428-2aab-7e12-9d89-3543f658a191.skydive.ap
 export default function Page() {
   const dispatch = useDispatch<AppDispatch>()
   const telemetry = useSelector((s: RootState) => s.telemetry)
-  const [activeTab, setActiveTab] = useState<"pantheon" | "heimdallr" | "vfs" | "mobile">("pantheon")
+  const [activeTab, setActiveTab] = useState<"pantheon" | "heimdallr" | "vfs" | "mobile" | "realms">("pantheon")
   const [runeInput, setRuneInput] = useState("fehu /alfheim")
   const [selectedFile, setSelectedFile] = useState<VfsNode>(() => flattenFiles(VFS)[0])
   const [gatewayUrl, setGatewayUrl] = useState(DEFAULT_GATEWAY)
@@ -155,6 +156,7 @@ export default function Page() {
           { id: "pantheon", label: "Pantheon Daemons", icon: Cpu },
           { id: "heimdallr", label: "Heimdallr Runic Gate", icon: Terminal },
           { id: "vfs", label: "Yggdrasil VFS", icon: FolderTree },
+          { id: "realms", label: "Nine Realms", icon: Sparkles },
           { id: "mobile", label: "Ubuntu 24.04 & Mobile", icon: Sparkles },
         ].map((t) => {
           const Icon = t.icon
@@ -359,6 +361,8 @@ export default function Page() {
               </div>
             </section>
           )}
+
+          {activeTab === "realms" && <RealmsView />}
         </div>
 
         {/* Right Sidebar: Live Forensic Event Feed */}
