@@ -1,8 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server"
 
 // Zero-trust dashboard gate (Heimdall): every route requires an authenticated
-// Better Auth session. Public exceptions: auth endpoints + next internals.
-const PUBLIC = ["/api/auth"]
+// Better Auth session. Public exceptions: auth endpoints, sign-in page + next internals.
+const PUBLIC = ["/api/auth", "/signin"]
 
 // Better Auth issues the session cookie as `better-auth.session_token`; on
 // HTTPS it gets the __Secure- prefix variant. Accept both spellings.

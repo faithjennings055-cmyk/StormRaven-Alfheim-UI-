@@ -28,8 +28,9 @@ describe("dashboard auth gate contract", () => {
     assert.ok(middleware.includes("status: 401"))
   })
 
-  it("keeps /api/auth public", () => {
+  it("keeps /api/auth and /signin public to avoid redirect loops", () => {
     assert.ok(middleware.includes('"/api/auth"'))
+    assert.ok(middleware.includes('"/signin"'))
   })
 
   it("keeps public assets reachable", () => {
