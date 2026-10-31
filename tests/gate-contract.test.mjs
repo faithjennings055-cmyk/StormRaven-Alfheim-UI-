@@ -45,3 +45,40 @@ describe("signin page exists as redirect target", () => {
     assert.ok(existsSync(join(root, "app", "signin", "page.tsx")))
   })
 })
+
+describe("nine realms identity, transitions, lore, and quotes contract (UI #9)", () => {
+  const realmsLib = readFileSync(join(root, "lib", "realms.ts"), "utf8")
+  const globalsCss = readFileSync(join(root, "app", "globals.css"), "utf8")
+  const realmsView = readFileSync(join(root, "components", "realms", "RealmsView.tsx"), "utf8")
+
+  const nineRealms = [
+    "asgard",
+    "vanaheim",
+    "muspelheim",
+    "jotunheim",
+    "svartalfheim",
+    "midgard",
+    "alfheim",
+    "niflheim",
+    "helheim",
+  ]
+
+  it("defines palette tokens, transitions, lore, and quotes for all nine realms", () => {
+    for (const r of nineRealms) {
+      assert.ok(realmsLib.includes(`id: "${r}"`), `lib/realms.ts missing ${r}`)
+      assert.ok(globalsCss.includes(`--realm-${r}-accent`), `globals.css missing token for ${r}`)
+      assert.ok(globalsCss.includes(`.realm-enter-${r}`), `globals.css missing transition for ${r}`)
+    }
+  })
+
+  it("respects prefers-reduced-motion", () => {
+    assert.ok(globalsCss.includes("prefers-reduced-motion: reduce"))
+  })
+
+  it("renders lore and quote banners in RealmsView", () => {
+    assert.ok(realmsView.includes("current.lore"))
+    assert.ok(realmsView.includes("current.quote"))
+    assert.ok(realmsView.includes("current.transitionClass"))
+  })
+})
+
