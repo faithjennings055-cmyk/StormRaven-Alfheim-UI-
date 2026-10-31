@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux"
 import {
   Activity,
   Cpu,
+  Flame,
   FolderTree,
   Lock,
   Shield,
@@ -13,6 +14,7 @@ import {
   Sparkles,
   Terminal,
   Wifi,
+  Zap,
 } from "lucide-react"
 import RealmsView from "@/components/realms/RealmsView"
 import { PANTHEON, STATUS_META, type DaemonStatus } from "@/lib/pantheon"
