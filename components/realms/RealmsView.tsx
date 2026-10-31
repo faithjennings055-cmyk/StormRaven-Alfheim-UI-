@@ -35,13 +35,13 @@ export default function RealmsView() {
           <button
             key={r.id}
             onClick={() => setActiveRealm(r.id)}
-            className={\`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono transition \${
+            className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-mono transition ${
               activeRealm === r.id 
                 ? "bg-primary/20 text-primary border border-primary/40" 
                 : "hover:bg-secondary text-muted-foreground border border-transparent"
-            }\`}
+            }`}
           >
-            <r.icon className={\`size-4 \${r.color}\`} />
+            <r.icon className={`size-4 ${r.color}`} />
             <span className="font-bold">{r.label}</span>
           </button>
         ))}
